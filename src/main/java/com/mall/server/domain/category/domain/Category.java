@@ -58,9 +58,12 @@ public class Category extends BaseEntity {
         this.deletedAt = LocalDateTime.now();
     }
 
-    public void update(Category parentCategory, Boolean displayYn) {
+    public void update(Category parentCategory, String name, Boolean displayYn) {
         if (this.parentCategory != parentCategory) {
             this.parentCategory = parentCategory;
+        }
+        if (name != null && !Objects.equals(name, this.name)) {
+            this.name = name;
         }
         if (displayYn != null) {
             this.displayYn = displayYn;
