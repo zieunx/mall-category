@@ -45,14 +45,13 @@ public class Category extends BaseEntity {
         this.parentCategory = parentCategory;
     }
 
-    public Category(String name, Boolean displayYn, Category parentCategory) {
+    public Category(String name, Category parentCategory) {
         this.name = name;
-        this.displayYn = displayYn;
         this.parentCategory = parentCategory;
     }
 
     public static Category create(String name, Category parentCategory) {
-        return new Category(name, false, parentCategory);
+        return new Category(name, parentCategory);
     }
 
     public void delete() {
