@@ -76,8 +76,8 @@ public class CategoryService {
 
     @Transactional
     public void deleteCategory(Long id) {
-        categoryRepository.findAllChildren(id)
-                .forEach(category ->category.update(null, category.getName(), category.getDisplayYn()));
+        categoryRepository.findChildren(id)
+                .forEach(category ->category.update(null, category.getName(), false));
 
         Category category = getCategory(id);
         category.delete();

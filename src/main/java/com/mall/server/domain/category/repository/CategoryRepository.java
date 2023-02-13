@@ -12,7 +12,7 @@ import java.util.List;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     @Query("SELECT category FROM Category category WHERE category.parentCategory.id = :id")
-    List<Category> findAllChildren(@Param(value = "id") Long id);
+    List<Category> findChildren(@Param(value = "id") Long id);
 
     @Query("SELECT category FROM Category category WHERE category.parentCategory.id = :id AND category.displayYn = :displayYn")
     List<Category> findAllChildren(@Param(value = "id") Long id,
