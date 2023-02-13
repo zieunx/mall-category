@@ -25,9 +25,14 @@ sudo docker pull ssok1217/mall-category
 
 ### 3) 컨테이너 실행
 
+`5000`포트로 기본 설정하였습니다.
+
 ```
 docker run -d --name mall-category -p 5000:8080 ssok1217/mall-category
 ```
 
-## API
+## Swagger
 
+컨테이너 실행 시 입력한 포트로 접속 가능합니다.
+
+http://localhost:5000/swagger-ui.html#/
