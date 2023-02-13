@@ -39,9 +39,10 @@ public class Category extends BaseEntity {
     private Category parentCategory = null;
 
     @Builder
-    public Category(Long id, String name, Category parentCategory) {
+    public Category(Long id, String name, Boolean displayYn, Category parentCategory) {
         this.id = id;
         this.name = name;
+        this.displayYn = displayYn;
         this.parentCategory = parentCategory;
     }
 
@@ -68,6 +69,10 @@ public class Category extends BaseEntity {
         if (displayYn != null) {
             this.displayYn = displayYn;
         }
+    }
+
+    public boolean isRoot() {
+        return parentCategory == null;
     }
 
     @Override
