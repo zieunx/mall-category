@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -22,6 +23,7 @@ public class Category extends BaseEntity {
     @Id
     private Long id;
 
+    @NotEmpty
     @Column(name = "name", nullable = false)
     private String name;
 
