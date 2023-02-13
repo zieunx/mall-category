@@ -2,7 +2,6 @@ package com.mall.server.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.ObjectError;
 
 import java.text.MessageFormat;
 import java.util.List;

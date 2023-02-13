@@ -2,7 +2,6 @@ package com.mall.server.exception.client;
 
 import com.mall.server.exception.ExceptionCode;
 import com.mall.server.exception.MallException;
-import org.springframework.validation.ObjectError;
 
 import java.util.List;
 
