@@ -1,0 +1,11 @@
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리1', null);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리2', 1);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리3', 1);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리4', 1);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리5', 2);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리6', 3);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리7', 4);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리8', 2);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리9', 3);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리10', 5);
+INSERT INTO category (id, created_at, updated_at, deleted_at, display_yn, name, parent_id) VALUES (default, now(), now(), null, 'Y', '카테고리11', 6);
