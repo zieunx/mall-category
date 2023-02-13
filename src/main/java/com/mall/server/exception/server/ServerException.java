@@ -10,4 +10,8 @@ public class ServerException extends MallException {
     public ServerException(ExceptionCode code, Object... args) {
         super(code, args);
     }
+
+    public ServerException(ExceptionCode code, Throwable cause) {
+        super(code, cause);
+    }
 }

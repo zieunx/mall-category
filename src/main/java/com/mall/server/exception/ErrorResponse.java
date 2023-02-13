@@ -22,17 +22,10 @@ public class ErrorResponse {
         this.code = code;
     }
 
-    public ErrorResponse(String message, String code, List<ObjectError> errors) {
+    public ErrorResponse(String message, String code, List<String> errors) {
         this.message = message;
         this.code = code;
-        if (errors != null) {
-            this.errors = errors.stream()
-                    .map(error -> {
-                        FieldError fieldError = (FieldError) error;
-                        return String.format("%s: %s", fieldError.getField(), fieldError.getDefaultMessage());
-                    })
-                    .collect(Collectors.toList());
-        }
+        this.errors = errors;
     }
 
     public static ErrorResponse from(MallException exception) {

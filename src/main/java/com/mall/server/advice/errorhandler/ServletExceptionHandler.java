@@ -1,13 +1,16 @@
 package com.mall.server.advice.errorhandler;
 
-import com.mall.server.exception.*;
+import com.mall.server.exception.ErrorResponse;
+import com.mall.server.exception.ExceptionCode;
 import com.mall.server.exception.client.ClientException;
+import com.mall.server.exception.client.RequestedServiceNotFoundException;
 import com.mall.server.exception.client.WrongPresentationRequestException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 
 import javax.servlet.ServletException;
 
@@ -26,6 +29,8 @@ public class ServletExceptionHandler implements ExceptionHandlerContract<Servlet
         ClientException e = null;
         if (exception instanceof HttpMediaTypeNotSupportedException) {
             e = new WrongPresentationRequestException(ExceptionCode.WRONG_PRESENTATION, exception);
+        } else if (exception instanceof HttpRequestMethodNotSupportedException) {
+            e = new RequestedServiceNotFoundException(ExceptionCode.SERVICE_NOT_FOUND, exception);
         }
 
         return ResponseEntity

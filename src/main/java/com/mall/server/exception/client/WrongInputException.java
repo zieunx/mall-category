@@ -10,7 +10,11 @@ import java.util.List;
  */
 public class WrongInputException extends ClientException {
 
-    public WrongInputException(ExceptionCode code, Throwable cause, List<ObjectError> errors) {
+    public WrongInputException(ExceptionCode code, Throwable cause, List<String> errors) {
         super(code, cause, errors);
+    }
+
+    public WrongInputException(ExceptionCode code, Throwable cause) {
+        super(code, cause);
     }
 }

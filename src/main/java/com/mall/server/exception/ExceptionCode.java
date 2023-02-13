@@ -14,6 +14,7 @@ public enum ExceptionCode {
     WRONG_REQUEST("E0003", "입력 값이 올바르지 않습니다.", HttpStatus.BAD_REQUEST),
     MALFORMED_INPUT("E0004", "잘못된 요청입니다.", HttpStatus.BAD_REQUEST),
     WRONG_PRESENTATION("E0005", "지원하지 않는 미디어 타입 입니다.", HttpStatus.UNSUPPORTED_MEDIA_TYPE),
+    CONSTRAINT_VIOLATIONS("E0006", "제약조건을 위반하였습니다.", HttpStatus.INTERNAL_SERVER_ERROR),
 
     // 특정 비즈니스 종속 예외 코드
     CATEGORY_NOT_FOUND("EC0001", "카테고리 ''{0}''를 찾을 수 없습니다.", HttpStatus.BAD_REQUEST);

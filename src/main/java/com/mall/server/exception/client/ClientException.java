@@ -15,7 +15,7 @@ public class ClientException extends MallException {
         super(code, cause);
     }
 
-    public ClientException(ExceptionCode code, Throwable cause, List<ObjectError> errors) {
+    public ClientException(ExceptionCode code, Throwable cause, List<String> errors) {
         super(code, cause, errors);
     }
 
