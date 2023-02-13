@@ -1,4 +1,4 @@
-package com.mall.server.domain.category.dto.response;
+package com.mall.server.domain.category.dto;
 
 import com.mall.server.domain.category.domain.Category;
 import lombok.Builder;

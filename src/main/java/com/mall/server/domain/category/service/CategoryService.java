@@ -1,8 +1,8 @@
 package com.mall.server.domain.category.service;
 
 import com.mall.server.domain.category.domain.Category;
-import com.mall.server.domain.category.dto.response.CategoryInfo;
-import com.mall.server.domain.category.dto.request.UpdateCategoryRequest;
+import com.mall.server.domain.category.dto.CategoryInfo;
+import com.mall.server.domain.category.dto.UpdateCategory;
 import com.mall.server.domain.category.exception.CategoryNotFoundException;
 import com.mall.server.domain.category.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,24 +23,15 @@ public class CategoryService {
 
     @Transactional(readOnly = true)
     public List<CategoryInfo> findCategoriesById(Long id) {
+        List<Category> rootCategories;
+
         if (id != null) {
-            return findChildrenById(id);
+            rootCategories = categoryRepository.findAllChildren(id, true);
+        } else {
+            rootCategories = categoryRepository.findRootCategories(true);
         }
-        return findAllCategories();
-    }
 
-    @Transactional(readOnly = true)
-    public List<CategoryInfo> findAllCategories() {
-        List<Category> collect = categoryRepository.findRootCategories(true);
-        return collect.stream()
-                .map(category -> CategoryInfo.create(category, findChildren(category)))
-                .collect(Collectors.toList());
-    }
-
-    @Transactional(readOnly = true)
-    public List<CategoryInfo> findChildrenById(Long id) {
-        List<Category> collect = categoryRepository.findAllChildren(id, true);
-        return collect.stream()
+        return rootCategories.stream()
                 .map(category -> CategoryInfo.create(category, findChildren(category)))
                 .collect(Collectors.toList());
     }
@@ -67,7 +58,7 @@ public class CategoryService {
     }
 
     @Transactional
-    public CategoryInfo updateCategory(Long id, UpdateCategoryRequest updateCategory) {
+    public CategoryInfo updateCategory(Long id, UpdateCategory.Request updateCategory) {
         Category category = getCategory(id);
 
         if (updateCategory.getParentId() != null) {
