@@ -56,6 +56,7 @@ public class Category extends BaseEntity {
     }
 
     public void delete() {
+        this.displayYn = false;
         this.deletedAt = LocalDateTime.now();
     }
 
